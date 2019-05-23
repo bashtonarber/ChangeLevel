@@ -1,0 +1,160 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ChangeLevelScript : MonoBehaviour
+{ 
+    // Ashton Barber
+    // This script changes the level when the player enters the protal. 
+    
+    public static bool changeLevel;
+    public string m_FirstLevel, m_SecondLevel, m_ThirdLevel, m_FourthLevel, m_FifthLevel, m_SixthLevel, m_SeventhLevel, m_EigthLevel, m_PractiseLevel, m_EndlessLevel; // A string of names for the scenes, the name written in the inspector has to match the name of the scene.
+    private AudioSource source; // AudioSource component required on the gameobject.
+    public AudioClip portalSound;
+    Scene m_Scene;
+	
+	void Update ()
+    {
+        m_Scene = SceneManager.GetActiveScene(); // The SceneManager gets the active scene.
+        source = GetComponent<AudioSource>(); // Gets the AudioSource component from the game object.
+    }
+
+    public void ChangeLevel() // Public so when the button its attached to is pressed the level will be changed. 
+    {
+        // if the scene name matches the name in the inspector, it will then load the next scene (THE STRING NAME IN THE INSPECTOR NEEDS TO MATCH THE NAME IN THE PROJECT WINDOW)!!!!! 
+        if (m_Scene.name == m_FirstLevel) 
+        {
+            SceneManager.LoadScene(m_SecondLevel);
+            source.PlayOneShot(portalSound);
+            Time.timeScale = 1; // Makes sure the timeScale is set 1.
+        }
+
+        if (m_Scene.name == m_SecondLevel)
+        {
+            SceneManager.LoadScene(m_ThirdLevel);
+            source.PlayOneShot(portalSound);
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_ThirdLevel)
+        {
+            SceneManager.LoadScene(m_FourthLevel);
+            source.PlayOneShot(portalSound);
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_FourthLevel)
+        {
+            SceneManager.LoadScene(m_FifthLevel);
+            source.PlayOneShot(portalSound);
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_FifthLevel)
+        {
+            SceneManager.LoadScene(m_SixthLevel);
+            source.PlayOneShot(portalSound);
+            ammoSpawner.level6 = true;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_SixthLevel)
+        {
+            SceneManager.LoadScene(m_SeventhLevel);
+            source.PlayOneShot(portalSound);
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_SeventhLevel)
+        {
+            SceneManager.LoadScene(m_EigthLevel);
+            source.PlayOneShot(portalSound);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void RestartLevel() // Public is can be attached to a button.
+    {
+        // if the scene name matches the name in the inspector then that scene will be reloaded.
+        if (m_Scene.name == m_FirstLevel)
+        {
+            SceneManager.LoadScene(m_FirstLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_SecondLevel)
+        {
+            SceneManager.LoadScene(m_SecondLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_ThirdLevel)
+        {
+            SceneManager.LoadScene(m_ThirdLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_FourthLevel)
+        {
+            SceneManager.LoadScene(m_FourthLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_FifthLevel)
+        {
+            SceneManager.LoadScene(m_FifthLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_SixthLevel)
+        {
+            SceneManager.LoadScene(m_SixthLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            ammoSpawner.level6 = true;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_SeventhLevel)
+        {
+            SceneManager.LoadScene(m_SeventhLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            ammoSpawner.level6 = true;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_EigthLevel)
+        {
+            SceneManager.LoadScene(m_EigthLevel);
+            FallingObjectsScript.fCActive = false;
+            FallingObjectsScript.fLActive = false;
+            ammoSpawner.level6 = true;
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_PractiseLevel)
+        {
+            SceneManager.LoadScene(m_PractiseLevel);
+            Time.timeScale = 1;
+        }
+
+        if (m_Scene.name == m_EndlessLevel)
+        {
+            SceneManager.LoadScene(m_EndlessLevel);
+            Time.timeScale = 1;
+        }
+
+    }
+}
